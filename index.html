@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap"" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="static/css/home.css">
+	<meta name="color-scheme" content="light dark">
+	
+	<!-- href="{{url_for('static', filename='css/home.css')}}" -->
+	<title>Matías Grin</title>
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180"
+		href="static/img/icons/apple-touch-icon.png" />
+		<!-- href="{{url_for('static', filename='img/icons/apple-touch-icon.png')}}" /> -->
+	<link rel="icon" type="image/png" sizes="32x32"
+		href="static/img/icons/favicon-32x32.png" />
+		<!-- href="{{url_for('static', filename='img/icons/favicon-32x32.png')}}" /> -->
+</head>
+
+<body>
+	<!-- Barra de Navegación -->
+	<nav>
+		<img id="logo" src="static/img/icons/logo.png" alt="Logo">
+		<!-- {{url_for('static', filename='img/icons/logo.png')}} -->
+		<ul class="navegacion">
+			<li><a href="#" class="nav-link">Presentación</a></li>
+			<li><a href="#sobreMi" class="nav-link">Acerca de Mí</a></li>
+			<li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+			<li><a href="#formacion" class="nav-link">Formación</a></li>
+			<li><a href="#experiencia" class="nav-link">Experiencia laboral</a></li>
+		</ul>
+		<button class="burger-menu" id="burger-menu">
+			<ion-icon class="bars" name="menu-outline"></ion-icon>
+		</button>
+	</nav>
+
+	<!-- Sección Principal  -->
+	<div id="main-div">
+		<img id='main-img' src="static/img/ParqueDelRetiro.png" alt="Retrato de Matías Grin">
+		<!-- {{url_for('static', filename='img/ParqueDelRetiro.png')}} -->
+		<div class="bio">
+			<h1>¡Hola!<br>Soy Matías</h1>
+			<p>Soy Junior Web Developer, con conocimientos en </p>
+			<div class="word"></div>
+		</div>
+	</div>
+
+	<!-- Sobre Mí -->
+	<section class="more-about" id="sobreMi">
+		<h2>Acerca de Mí</h2>
+		<p>
+			Tengo 20 años, pero me interesé por la programación desde la adolesencia. Comencé aprendiendo 
+			Python en youtube para aprender a automatizar procesos y optimizar mis tareas. 
+			Considero que soy productivo, responsable y sociable. Me gusta trabajar en equipo y aprender de otras personas.
+			Soy curioso y busco constantemente adquirir nuevos conocimientos.
+		</p>
+		<p>
+			Además de formarme por mi cuenta, me encuentro estudiando una carrera universitaria.
+			En abril comenzaré mi tercer año estudiando Ingeniería en Sistemas de Información en la UTN regional Buenos Aires.
+		</p>
+	</section>
+
+	<!-- Sección Habilidades -->
+	<section class="skills" id="habilidades">
+		<h2 class="skills-header">Mis habilidades</h2>
+		<ul>
+			<li>Python - Selenium - Flask</li>
+			<li>HTML - CSS - Javascript</li>
+			<li>C - Git - Github</li>
+			<li>Paquete Office</li>
+			<li>Nivel C1 de inglés</li>
+		</ul>
+	</section>
+	
+	<!-- Sección Formacion -->
+	<section class="skills" id="formacion">
+		<h2 class="skills-header">Educación</h2>
+		<h3>UTN-FRBA, CABA</h3>
+		<p><a href="/static/docs/sistemas.pdf" target="_blank">Ingeniería en Sistemas de Información 2021 - 2026</a></p>
+		<h3>Colegio Cardenal Copello, CABA</h3>
+		<p><a href="/static/docs/Certificado secundario completo.pdf" target="_blank">Estudios secundarios 2016 - 2020</a></p>
+		<h3>San Francisco College, CABA</h3>
+		<p><a href="/static/docs/CAE.jpeg" target="_blank">Instituto de inglés 2011 - 2020</a></p>
+	</section>
+
+	<!-- Sección Experiencia -->
+	<section class="skills" id="experiencia">
+		<h2 class="skills-header">Experiencia Laboral</h2>
+		<h3>Administrativo - Estudio Grin Bonomo y Asociados Abogados</h3>
+		<h4>Octubre 2019 - Noviembre 2022</h4>
+		<p>
+			Web scraping y automatización de procesos con Selenium.
+		</p>
+		<p>
+			Análisis y data entry de información relacionada a denuncias de siniestros.
+		</p>
+	</section>
+
+	<!-- Sección de redes sociales - Fijado a la derecha -->
+	<footer>
+		<div>
+			<a href="/static/docs/CV.pdf" target="_blank"><img src="static/img/icons/icons8-resume-48.png" alt="CV"></a>
+			<a href="https://www.linkedin.com/in/mat%C3%ADas-grin-9b76b61b4/" target="_blank"><img src="static/img/icons/icons8-linkedin-100.png" alt="Linkedin" loading="lazy" class="socicon" /></a>
+			<a href="https://github.com/Zeta2003x" target="_blank"><img src="static/img/icons/icons8-github-60.png" alt="Github" class="socicon" /></a>
+		</div>
+		<p onclick="copy(this)" class="hovertext" data-hover="Haz clic para copiar">Mail: grinmatias@gmail.com</p>
+		<p onclick="copy(this)" class="hovertext" data-hover="Haz clic para copiar">Teléfono: 11-4174-0902</p>
+	</footer>
+
+	<!-- Website scripts -->
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+	<script src="static/js/app.js"></script>
+	
+	<!-- Ion icons scripts -->
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
