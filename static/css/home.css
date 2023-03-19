@@ -5,7 +5,8 @@
     --bold-font: 700;
     --bolder-font: 900;
     --bg-color: #fcfcfc;
-    --primary-color: #03045e;
+    --primary-color: #023E8A;
+    --text-color: #222;
     --secondary-color: #0077b6;
     --primary-shadow: #8b8eaf;
     --secondary-shadow: #739dbf;
@@ -18,6 +19,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 7rem;
+    color: var(--text-color);
 }
 
 /* CSS Resets */
@@ -61,8 +63,11 @@ nav {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-nav img {
-    height: 4rem;
+#logo {
+    font: var(--font-family);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 nav a {
