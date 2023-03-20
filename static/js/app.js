@@ -1,6 +1,6 @@
 // Control Barra de navegación hamburguesa
 
-const burger = document.querySelector("#burger-menu");
+const burger = document.querySelector("#burger-menu .bars");
 const ul = document.querySelector("nav ul");
 
 burger.addEventListener("click", () => {
