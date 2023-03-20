@@ -14,6 +14,17 @@
     --bottom-margin-2: 1rem;
     --line-height: 1.7rem;
     --transition: 0.3s;
+    --image-opacity: 1;
+}
+
+.dark-theme {
+    --bg-color: #222;
+    --primary-color: #739dbf;
+    --text-color: #ddd;
+    --secondary-color: #0077b6;
+    --primary-shadow: #8b8eaf;
+    --secondary-shadow: #739dbf;
+    --image-opacity: 0.8;
 }
 
 html {
@@ -27,6 +38,10 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--text-color);
+    transition:
+      color 0.5s ,
+      background-color 0.5s ;
 }
 
 ul {
@@ -48,6 +63,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--font-family);
+    
 }
 
 nav {
@@ -67,6 +83,7 @@ nav {
     font: var(--font-family);
     font-size: 30px;
     font-weight: 600;
+    letter-spacing: 2px;
     color: var(--primary-color);
     margin-left: 20px;
 }
@@ -124,6 +141,7 @@ nav ul li {
 }
 
 #main-img {
+    opacity: var(--image-opacity);
     height: 23rem;
     width: 23rem;
     object-fit: cover;
@@ -200,6 +218,7 @@ footer {
     margin: 3rem 0 0;
     background-color: var(--bg-color);
     box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
 }
 
 footer div {
@@ -216,12 +235,11 @@ footer div a img {
     height: 2rem;
     width: 2rem;
     object-fit: cover;
-    transition: filter 0.8s;
+    transition: filter 0.5s;
 }
 
 footer div a img:hover {
-    filter: invert(50%);
-    transition: filter 0.5s;
+    filter: invert(50%)!important;
 }
 
 footer p {
@@ -272,7 +290,7 @@ footer p {
         top: 84px;
         width: 100%;
         left: 0;
-        height: calc(100% - 90px);
+        height: calc(100% - 84px);
         text-align: center;
         opacity: 0;
         transform: translateX(120%);
@@ -304,14 +322,6 @@ footer p {
         margin-top: 2rem;
         width: 20.5rem;
         position: initial;
-    }
-
-    .bio h1 {
-        display: inline-block;
-        color: #023E8A;
-        font-family: 'Ubuntu', sans-serif;
-        font-size: calc(2vw + 2vh + 2vmin);
-        margin-bottom: var(--bottom-margin);
     }
 
     .bio p {

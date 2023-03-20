@@ -17,16 +17,21 @@ navLink.forEach((link) =>
 
 // -----------------------------------------------------------------------------
 
-// Copiar palabras
+// Control cambiar tema
 
-function copy(that) {
-  var inp = document.createElement('input');
-  document.body.appendChild(inp)
-  inp.value = that.textContent.slice(that.textContent.indexOf(" ") + 1)
-  inp.select();
-  document.execCommand('copy', false);
-  inp.remove();
-}
+const darkModeBtn = document.getElementById("dark-mode-icon");
+const footerIcons = document.querySelectorAll("footer div a img")
+
+darkModeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")) {
+    darkModeBtn.style.filter = "invert(80%)";
+    footerIcons.forEach((icon) => {icon.style.filter = "invert(80%)"});
+  } else {
+    darkModeBtn.style.filter = "invert(0%)";
+    footerIcons.forEach((icon) => {icon.style.filter = "invert(0%)"});
+  }
+});
 
 // -----------------------------------------------------------------------------
 
@@ -78,3 +83,18 @@ var wordflick = function () {
 $(function () {
   wordflick();
 });
+
+// -----------------------------------------------------------------------------
+
+// Copiar palabras
+
+function copy(that) {
+  var inp = document.createElement('input');
+  document.body.appendChild(inp)
+  inp.value = that.textContent.slice(that.textContent.indexOf(" ") + 1)
+  inp.select();
+  document.execCommand('copy', false);
+  inp.remove();
+}
+
+// -----------------------------------------------------------------------------
