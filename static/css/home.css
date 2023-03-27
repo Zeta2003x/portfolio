@@ -62,8 +62,8 @@ body {
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
+    gap: 5px;
     font-family: var(--font-family);
-    
 }
 
 nav {
@@ -133,10 +133,10 @@ nav ul li {
 #main-div {
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: calc(2rem + 2vw) 0;
-    gap: 2.5rem;
+    gap: 7rem;
     max-width: 68.75rem;
+    height: calc(100vh - 90px);
     margin: auto;
 }
 
@@ -145,41 +145,48 @@ nav ul li {
     height: 23rem;
     width: 23rem;
     object-fit: cover;
-    margin: auto;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
 }
 
 .bio {
-    max-width: 20rem;
+    max-width: 22rem;
     min-width: 15rem;
-    max-height: 10rem;
-    padding: 0.625rem;
-    position: relative;
-    top: -4rem;
+    height: 250px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .bio h1 {
     display: inline-block;
     color: var(--primary-color);
     font-family: 'Ubuntu', sans-serif;
-    font-size: calc(2vw + 2vh + 2vmin);
+    font-size: calc(1.5vw + 2vh + 2vmin);
     margin-bottom: var(--bottom-margin);
 }
 
 .bio p {
     display: inline-block;
-    font-size: calc(1vw + 0.5rem);
+    font-size: 1.4rem;
 }
 
 .word {
     display: inline-block;
     font-weight: bold;
-    font-size: calc(1vw + 0.7rem);
+    font-size: 1.5rem;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
 }
 
 section {
     background-color: var(--bg-color);
-    padding: 1rem 6vw;
+    padding: 3rem 6vw 1rem;
+    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
 }
 
 section h2 {
@@ -277,11 +284,7 @@ footer p {
 }
 
 /* Media queries for responsiveness */
-@media screen and (max-width: 860px) {
-    nav {
-        padding: 1.5rem 1rem;
-    }
-
+@media screen and (max-width: 1000px) {
     nav ul {
         position: fixed;
         background-color: var(--bg-color);
@@ -313,24 +316,17 @@ footer p {
     }
 
     #main-div {
-        margin-top: 0rem;
-        flex-direction: column;
-        gap: 0;
+        gap: 3rem;
     }
 
     .bio {
-        margin-top: 2rem;
         width: 20.5rem;
-        position: initial;
-    }
-
-    .bio p {
-        font-size: calc(1vw + 1vh + 1vmin);
+        height: 220px;
     }
 
     #main-img {
-        height: 20rem;
-        width: 20rem;
+        height: 17rem;
+        width: 17rem;
     }
 
     footer div {
@@ -340,14 +336,35 @@ footer p {
 
 }
 
+@media screen and (max-width: 800px) {
+    #main-div {
+        margin-top: 0rem;
+        flex-direction: column;
+        gap: 1rem;
+        height: 86vh;
+    }
+    
+    .bio {
+        padding-left: 50px;
+    }
+    
+    .bio p {
+        font-size: 1rem;
+    }
+
+    .word {
+        font-size: 1.1rem;
+    }
+}
+
 @media screen and (max-width: 420px) {
-    #main-img {
-        height: 18rem;
-        width: 18rem;
+    nav {
+        padding: 1.5rem 1rem;
     }
 
     .bio {
         width: 18.3rem;
+        padding-left: 30px;
     }
 
     footer p {
