@@ -37,7 +37,7 @@ darkModeBtn.addEventListener("click", () => {
 
 // Mostrar lenguajes sabidos
 
-var words = ['Python', 'HTML', 'CSS', ' Javascript', 'Git', ' Github', 'Flask', 'SQL', 'Programación en C'],
+var words = ['Python', 'Power Query', 'Power Bi', 'Visual Basic', 'CSS', ' Javascript', 'SQL', 'programación en C'],
   part,
   i = 0,
   offset = 0,
