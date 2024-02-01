@@ -20,15 +20,17 @@ navLink.forEach((link) =>
 // Control cambiar tema
 
 const darkModeBtn = document.getElementById("dark-mode-icon");
-const footerIcons = document.querySelectorAll("footer div a img")
+const navIcons = document.querySelectorAll(".nav-icon");
+const footerIcons = document.querySelectorAll("footer div a img");
+
 
 darkModeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme");
   if (document.body.classList.contains("dark-theme")) {
-    darkModeBtn.style.filter = "invert(80%)";
+    navIcons.forEach((icon) => {icon.style.filter = "invert(80%)"});
     footerIcons.forEach((icon) => {icon.style.filter = "invert(80%)"});
   } else {
-    darkModeBtn.style.filter = "invert(0%)";
+    navIcons.forEach((icon) => {icon.style.filter = "invert(0%)"});
     footerIcons.forEach((icon) => {icon.style.filter = "invert(0%)"});
   }
 });
@@ -37,7 +39,7 @@ darkModeBtn.addEventListener("click", () => {
 
 // Mostrar lenguajes sabidos
 
-var words = ['Python', 'Power Query', 'Power Bi', 'Visual Basic', 'CSS', ' Javascript', 'SQL', 'programación en C'],
+var words = ['Python', 'Power Query', 'Power Bi', 'Visual Basic', 'CSS', ' Javascript', 'SQL', 'C++', 'Apex', 'Salesforce', 'VBA', 'TypeScript', 'Go'],
   part,
   i = 0,
   offset = 0,

@@ -88,10 +88,10 @@ nav {
     margin-left: 20px;
 }
 
-#dark-mode-icon {
+.nav-icon {
     cursor: pointer;
     max-width: 30px;
-    margin: 0 20px 0 10px;
+    margin: 0 10px 0 10px;
 }
 
 nav a {
