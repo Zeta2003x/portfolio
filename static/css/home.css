@@ -209,6 +209,16 @@ section h2 {
     margin-bottom: 20px;
 }
 
+.academy-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#certis h3 {
+    margin-bottom: var(--bottom-margin-2);
+}
+
 h3 {
     line-height: var(--line-height);
     padding: 0.8vw 0 0.2vw;
