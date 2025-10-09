@@ -375,6 +375,7 @@ nav {
 .content-section--certifications iframe {
     margin-right: 20px;
     margin-bottom: 20px;
+    max-width: 100%;
 }
 
 .academy-badges {
@@ -610,6 +611,16 @@ footer {
     .footer-contact {
         align-items: center;
     }
+
+    .content-section--certifications iframe {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .academy-badges img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -631,5 +642,15 @@ footer {
 
     .footer-contact {
         width: 100%;
+    }
+
+    .content-section--certifications iframe {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .academy-badges img {
+        max-width: 100%;
+        height: auto;
     }
 }
