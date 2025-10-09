@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -39,22 +39,38 @@
 
   <body>
     <!-- Barra de Navegación -->
-    <nav>
+    <nav class="site-nav">
       <!-- <img id="logo" src="static/img/icons/logo.png" alt="Logo"> -->
-      <p id="logo">MG</p>
+      <p id="logo" class="site-nav__logo">MG</p>
       <!-- {{url_for('static', filename='img/icons/logo.png')}} -->
-      <ul class="navigation">
-        <li><a href="#sobreMi" class="nav-link">ABOUT ME</a></li>
-        <li><a href="#habilidades" class="nav-link">SKILLS</a></li>
-        <li><a href="#formacion" class="nav-link">EDUCATION</a></li>
-        <li><a href="#certis" class="nav-link">CERTIFICATIONS</a></li>
-        <li><a href="#experiencia" class="nav-link">WORK EXPERIENCE</a></li>
-        <li>
-          <a href="https://blog.grinmatias.com.ar/" class="nav-link">BLOG</a>
+      <ul class="site-nav__list" id="primary-navigation">
+        <li class="site-nav__item">
+          <a href="#sobreMi" class="site-nav__link nav-link">ABOUT ME</a>
+        </li>
+        <li class="site-nav__item">
+          <a href="#habilidades" class="site-nav__link nav-link">SKILLS</a>
+        </li>
+        <li class="site-nav__item">
+          <a href="#formacion" class="site-nav__link nav-link">EDUCATION</a>
+        </li>
+        <li class="site-nav__item">
+          <a href="#certis" class="site-nav__link nav-link">CERTIFICATIONS</a>
+        </li>
+        <li class="site-nav__item">
+          <a href="#experiencia" class="site-nav__link nav-link">WORK EXPERIENCE</a>
+        </li>
+        <li class="site-nav__item">
+          <a href="https://blog.grinmatias.com.ar/" class="site-nav__link nav-link">BLOG</a>
         </li>
       </ul>
-      <button class="burger-menu" id="burger-menu">
-        <ion-icon class="bars" name="menu-outline"></ion-icon>
+      <button
+        class="site-nav__burger burger-menu"
+        id="burger-menu"
+        aria-label="Toggle navigation"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <ion-icon class="site-nav__burger-icon bars" name="menu-outline"></ion-icon>
       </button>
       <img
         src="/static/img/icons/light-mode.png"
@@ -88,8 +104,8 @@
     </div>
     <div class="sections">
       <!-- Sobre Mí -->
-      <section class="more-about" id="sobreMi">
-        <h2>About Me</h2>
+      <section class="content-section content-section--about" id="sobreMi">
+        <h2 class="content-section__title">About Me</h2>
         <p>
           I'm 22 years old, but I became interested in programming since my
           adolescence. I started learning Python on YouTube to learn how to
@@ -107,26 +123,65 @@
       </section>
 
       <!-- Sección Habilidades -->
-      <section class="skills" id="habilidades">
-        <h2 class="skills-header">My Skills</h2>
-        <ul>
-          <li>Salesforce (LWC - Apex - Flows - Visualforce)</li>
-          <li>Python (Selenium - Flask - Pandas)</li>
-          <li>HTML - CSS - Tailwind</li>
-          <li>React - TypeScript - NodeJS</li>
-          <li>C - Git - Github - Makefiles</li>
-          <li>Excel (Power Query - VBA)</li>
-          <li>Power Bi - Word - PowerPoint - Outlook</li>
-          <li>SQL - PostgreSQL - Access - SQL Server</li>
-          <li>Sanity - Clerk</li>
-          <li>C1 level of English</li>
-        </ul>
+      <section class="content-section content-section--skills" id="habilidades">
+        <h2 class="content-section__title">My Skills</h2>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3 class="skill-card__title">Salesforce Ecosystem</h3>
+            <ul class="skill-card__list">
+              <li>Salesforce (LWC · Apex · Flows · Visualforce)</li>
+              <li>Agentforce · Prompt Builder</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Web Development</h3>
+            <ul class="skill-card__list">
+              <li>HTML · CSS · Tailwind</li>
+              <li>React · TypeScript · Node.js</li>
+              <li>Git · GitHub</li>
+              <li>Sanity · Clerk</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Programming & Automation</h3>
+            <ul class="skill-card__list">
+              <li>Python (Selenium · Pandas · PyAutoGUI)</li>
+              <li>C · Makefiles · RPA</li>
+              <li>Scraping · Integrations</li>
+              <li>AWS (Lambda · S3 · EC2)</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Data & Analytics</h3>
+            <ul class="skill-card__list">
+              <li>Power BI · Excel (Power Query · VBA)</li>
+              <li>SQL · PostgreSQL · Access · SQL Server · MongoDB</li>
+              <li>Dashboards · Reporting</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Languages & Communication</h3>
+            <ul class="skill-card__list">
+              <li>C1 English proficiency</li>
+              <li>Technical documentation</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Additional Skills</h3>
+            <ul class="skill-card__list">
+              <li>Agile methodologies (Scrum · Kanban)</li>
+              <li>Team collaboration</li>
+              <li>Problem solving</li>
+              <li>Proactivity</li>
+            </ul>
+          </article>
+        </div>
       </section>
 
       <!-- Sección Formacion -->
-      <section class="skills" id="formacion">
-        <h2 class="skills-header">Education</h2>
-        <h3>Trailhead</h3>
+      <section class="content-section content-section--education" id="formacion">
+        <h2 class="content-section__title">Education</h2>
+        <h3 class="content-section__subtitle">Trailhead</h3>
         <p>
           <a
             href="https://www.salesforce.com/trailblazer/matiasgrin"
@@ -134,14 +189,14 @@
             >Trailblazer Profile</a
           >
         </p>
-        <p>Double Star Ranger - 34 Superbadges</p>
-        <h3>UTN-FRBA, CABA</h3>
+  <p>Double Star Ranger - 34 Superbadges</p>
+  <h3 class="content-section__subtitle">UTN-FRBA, CABA</h3>
         <p>
           <a href="/static/docs/sistemas.pdf" target="_blank"
             >Information Systems Engineering 2021 - Present</a
           >
         </p>
-        <h3>Cardenal Copello School, CABA</h3>
+  <h3 class="content-section__subtitle">Cardenal Copello School, CABA</h3>
         <p>
           <a
             href="/static/docs/Certificado secundario completo.pdf"
@@ -149,7 +204,7 @@
             >High School Studies 2016 - 2020</a
           >
         </p>
-        <h3>San Francisco College, CABA</h3>
+  <h3 class="content-section__subtitle">San Francisco College, CABA</h3>
         <p>
           <a href="/static/docs/CAE.jpeg" target="_blank"
             >English Institute 2011 - 2020</a
@@ -158,10 +213,10 @@
       </section>
 
       <!-- Sección Certis -->
-      <section class="skills" id="certis">
-        <h2 class="skills-header">Certifications</h2>
+      <section class="content-section content-section--certifications" id="certis">
+        <h2 class="content-section__title">Certifications</h2>
 
-        <h3>Salesforce</h3>
+        <h3 class="content-section__subtitle">Salesforce</h3>
         <iframe
           src="https://www.linkedin.com/embed/feed/update/urn:li:share:7376704298283520002?collapsed=1"
           height="399"
@@ -203,7 +258,7 @@
           title="Salesforce AI Certification"
         ></iframe>
 
-        <h3>Amazon Web Services</h3>
+  <h3 class="content-section__subtitle">Amazon Web Services</h3>
         <div
           data-iframe-width="500"
           data-iframe-height="240"
@@ -216,7 +271,7 @@
           src="//cdn.credly.com/assets/utilities/embed.js"
         ></script>
 
-        <h3>Hubspot</h3>
+  <h3 class="content-section__subtitle">Hubspot</h3>
         <div class="academy-badges">
           <div class="academy-badge">
             <a
@@ -282,86 +337,136 @@
       </section>
 
       <!-- Sección Experiencia -->
-      <section class="skills" id="experiencia">
-        <h2 class="skills-header">Work Experience</h2>
+      <section class="content-section content-section--experience" id="experiencia">
+        <h2 class="content-section__title">Work Experience</h2>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <header class="experience-card__header">
+              <h3 class="experience-card__title">Salesforce Developer</h3>
+              <span class="experience-card__date">October 2025 - Present</span>
+            </header>
+            <a
+              class="experience-card__company experience-card__company--accenture"
+              href="https://www.accenture.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Accenture
+            </a>
+            <ul class="experience-card__details">
+              <li>Developing Salesforce solutions, including Agentforce and Prompt Builder.</li>
+              <li>Partnering with cross-functional teams to deliver scalable experiences.</li>
+            </ul>
+          </article>
 
-        <h3>Salesforce Developer - Accenture</h3>
-        <h4>October 2025 - Present</h4>
-        <p>
-          Developing Salesforce solutions, including Agentforce, Prompt Builder and other tools.
-        </p>
-        <p>
-          Collaborating with cross-functional teams to deliver scalable solutions.
-        </p>
+          <article class="experience-card">
+            <header class="experience-card__header">
+              <h3 class="experience-card__title">Salesforce Developer</h3>
+              <span class="experience-card__date">September 2023 - October 2025</span>
+            </header>
+            <a
+              class="experience-card__company experience-card__company--endava"
+              href="https://www.endava.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Endava
+            </a>
+            <ul class="experience-card__details">
+              <li>Delivered Salesforce solutions (Apex, LWC, Flows, Visualforce).</li>
+              <li>Led initiatives for insurance, healthcare, finance, and HR clients.</li>
+              <li>Optimized system performance and streamlined client workflows.</li>
+            </ul>
+          </article>
 
-        <h3>Salesforce Developer - Endava</h3>
-        <h4>September 2023 - October 2025</h4>
-        <p>
-          Developed Salesforce solutions (Apex, LWC, Flows, Visualforce).
-        </p>
-        <p>
-          Worked on projects in industries such as insurance, healthcare, finance, and HR.
-        </p>
-        <p>
-          Enhanced system performance and optimized workflows for clients.
-        </p>
+          <article class="experience-card">
+            <header class="experience-card__header">
+              <h3 class="experience-card__title">Data Analyst</h3>
+              <span class="experience-card__date">April 2023 - August 2023</span>
+            </header>
+            <a
+              class="experience-card__company experience-card__company--symmetria"
+              href="https://www.symmetria.com.ar/"
+              target="_blank"
+              rel="noopener"
+            >
+              Symmetria
+            </a>
+            <ul class="experience-card__details">
+              <li>Performed data analysis and built Power BI reports.</li>
+              <li>Planned and monitored production KPIs.</li>
+              <li>Created a management system in Excel.</li>
+              <li>Implemented enhancements in the Odoo ERP platform.</li>
+            </ul>
+          </article>
 
-        <h3>Data Analyst - Symmetria</h3>
-        <h4>April 2023 - August 2023</h4>
-        <p>Data analysis and reports in Power BI.</p>
-        <p>Production planning and monitoring.</p>
-        <p>Development of management system in Excel.</p>
-        <p>Implementation of improvements in ERP Odoo.</p>
-
-        <h3>
-          Data Analysis and Robotic Process Automation - Estudio Grin Bonomo y Asociados Abogados
-        </h3>
-        <h4>October 2019 - March 2024</h4>
-        <p>Web scraping and process automation with Python and Selenium.</p>
-        <p>Creation of reports in Power BI.</p>
-        <p>
-          Analysis of information related to accident claims.
-        </p>
-        <p>
-          <a href="https://grinbonomo.com.ar/" target="_blank"
-            >Website development.</a
-          >
-        </p>
+          <article class="experience-card">
+            <header class="experience-card__header">
+              <h3 class="experience-card__title">Data Analysis & RPA</h3>
+              <span class="experience-card__date">October 2019 - March 2024</span>
+            </header>
+            <a
+              class="experience-card__company experience-card__company--estudiogb"
+              href="https://grinbonomo.com.ar/"
+              target="_blank"
+              rel="noopener"
+            >
+              Estudio Grin Bonomo y Asociados Abogados
+            </a>
+            <ul class="experience-card__details">
+              <li>Automated workflows through Python and Selenium web scraping.</li>
+              <li>Produced Power BI dashboards and analyzed accident claim data.</li>
+              <li>Developed and maintained the firm's website.</li>
+            </ul>
+            <div class="experience-card__cta">
+              <a href="https://grinbonomo.com.ar/" target="_blank">View website</a>
+            </div>
+          </article>
+        </div>
       </section>
     </div>
     <!-- Sección de redes sociales - Fijado a la derecha -->
     <footer>
-      <div>
-        <a href="/static/docs/CV-EN.pdf" target="_blank">
-          <img src="static/img/icons/icons8-resume-48.png" alt="CV" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/mat%C3%ADas-grin-9b76b61b4/"
-          target="_blank"
-          ><img
-            src="static/img/icons/icons8-linkedin-100.png"
-            alt="LinkedIn"
-            loading="lazy"
-            class="socicon"
-        /></a>
-        <a href="https://github.com/Zeta2003x" target="_blank"
-          ><img
-            src="static/img/icons/icons8-github-60.png"
-            alt="GitHub"
-            class="socicon"
-        /></a>
-        <a
-          href="https://www.salesforce.com/trailblazer/matiasgrin"
-          target="_blank"
-        >
-          <img
-            src="static/img/icons/salesforce-icon.png"
-            alt="Salesforce"
-            class="socicon"
-        /></a>
+      <div class="footer-content">
+        <div class="footer-icons">
+          <a href="/static/docs/CV-EN.pdf" target="_blank">
+            <img src="static/img/icons/icons8-resume-48.png" alt="CV" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mat%C3%ADas-grin-9b76b61b4/"
+            target="_blank"
+          >
+            <img
+              src="static/img/icons/icons8-linkedin-100.png"
+              alt="LinkedIn"
+              loading="lazy"
+              class="socicon"
+            />
+          </a>
+          <a href="https://github.com/Zeta2003x" target="_blank">
+            <img
+              src="static/img/icons/icons8-github-60.png"
+              alt="GitHub"
+              class="socicon"
+            />
+          </a>
+          <a
+            href="https://www.salesforce.com/trailblazer/matiasgrin"
+            target="_blank"
+          >
+            <img
+              src="static/img/icons/salesforce-icon.png"
+              alt="Salesforce"
+              class="socicon"
+            />
+          </a>
+        </div>
+        <div class="footer-contact">
+          <a class="footer-link" href="mailto:grinmatias@gmail.com">grinmatias@gmail.com</a>
+          <a class="footer-link" href="tel:+541141740902">+54 11 4174-0902</a>
+        </div>
       </div>
-      <p>grinmatias@gmail.com</p>
-      <p>54-11-4174-0902</p>
+      <p class="footer-note">© 2025 - Site created by Matías Grin</p>
     </footer>
 
     <!-- Website scripts -->

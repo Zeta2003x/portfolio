@@ -1,16 +1,21 @@
 // Control Barra de navegación hamburguesa
-const burger = document.querySelector("#burger-menu .bars");
-const ul = document.querySelector("nav ul");
+const burgerButton = document.getElementById("burger-menu");
+const navList = document.querySelector(".site-nav__list");
 
-burger.addEventListener("click", () => {
-  ul.classList.toggle("show");
-});
+if (burgerButton && navList) {
+  burgerButton.addEventListener("click", () => {
+    const isExpanded = burgerButton.getAttribute("aria-expanded") === "true";
+    burgerButton.setAttribute("aria-expanded", (!isExpanded).toString());
+    navList.classList.toggle("show");
+  });
+}
 
 const navLink = document.querySelectorAll(".nav-link");
 
 navLink.forEach((link) =>
   link.addEventListener("click", () => {
-    ul.classList.remove("show");
+    navList?.classList.remove("show");
+    burgerButton?.setAttribute("aria-expanded", "false");
   })
 );
 
