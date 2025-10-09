@@ -1,3 +1,20 @@
+// Apply theme based on URL parameter BEFORE page loads
+const urlParams = new URLSearchParams(window.location.search);
+const theme = urlParams.get("theme");
+if (theme === "dark") {
+  document.documentElement.classList.add("dark-theme");
+  document.body.classList.add("dark-theme");
+  const navIcons = document.querySelectorAll(".nav-icon");
+  const footerIcons = document.querySelectorAll("footer div a img");
+  navIcons.forEach((icon) => { icon.style.filter = "invert(80%)"; });
+  footerIcons.forEach((icon) => { icon.style.filter = "invert(80%)"; });
+} else if (theme === "light") {
+  document.documentElement.classList.remove("dark-theme");
+  document.body.classList.remove("dark-theme");
+}
+
+// -----------------------------------------------------------------------------
+
 // Control Barra de navegación hamburguesa
 const burgerButton = document.getElementById("burger-menu");
 const navList = document.querySelector(".site-nav__list");
@@ -42,15 +59,6 @@ languageIcon.addEventListener("click", (event) => {
   const targetUrl = languageIcon.parentElement.getAttribute("href");
   window.location.href = `${targetUrl}?theme=${currentTheme}`;
 });
-
-// Apply theme based on URL parameter
-const urlParams = new URLSearchParams(window.location.search);
-const theme = urlParams.get("theme");
-if (theme === "dark") {
-  document.body.classList.add("dark-theme");
-} else if (theme === "light") {
-  document.body.classList.remove("dark-theme");
-}
 
 // -----------------------------------------------------------------------------
 

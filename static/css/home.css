@@ -142,7 +142,7 @@ nav {
 
 #main-div {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: calc(2rem + 2vw) 0;
     gap: 7rem;
     max-width: 68.75rem;
@@ -443,10 +443,19 @@ footer {
     width: 2.8rem;
     object-fit: cover;
     transition: filter var(--transition-duration), transform 0.3s ease;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) saturate(100%);
 }
 
 .footer-icons a img:hover {
+    filter: brightness(0) saturate(100%) opacity(0.7);
+    transform: translateY(-4px);
+}
+
+.dark-theme .footer-icons a img {
+    filter: brightness(0) invert(1);
+}
+
+.dark-theme .footer-icons a img:hover {
     filter: brightness(1.2) invert(1);
     transform: translateY(-4px);
 }
@@ -504,12 +513,17 @@ footer {
 
 /* Remove hover effect on language icon */
 #language-icon:hover {
-    filter: none;
+    filter: none !important;
 }
 
 /* Make navbar icons white in dark mode */
 .dark-theme .nav-icon {
     filter: invert(100%);
+}
+
+/* Keep language icon filter consistent in dark mode */
+.dark-theme #language-icon {
+    filter: invert(100%) !important;
 }
 
 /* Add hover effect to navbar icons */
@@ -519,6 +533,17 @@ footer {
 }
 
 /* Media queries for responsiveness */
+@media screen and (max-width: 1200px) {
+    .site-nav__list {
+        gap: 1.2rem;
+        font-size: 0.95rem;
+    }
+    
+    nav {
+        padding: 1.5rem 2rem;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .site-nav__list {
         position: fixed;
