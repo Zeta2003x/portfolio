@@ -115,6 +115,7 @@ nav {
 
 .site-nav__list {
     display: flex;
+    font-size: 0.9rem;
     gap: 1.9rem;
     flex: 1;
     justify-content: right;
@@ -142,8 +143,8 @@ nav {
 
 #main-div {
     display: flex;
-    align-items: center;
-    padding: calc(2rem + 2vw) 0;
+    align-items: flex-start;
+    padding: calc(3rem + 2vw) 0;
     gap: 7rem;
     max-width: 68.75rem;
     height: calc(100vh - 90px);
@@ -166,7 +167,7 @@ nav {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: auto;
+    
 }
 
 .bio h1 {
@@ -536,7 +537,6 @@ footer {
 @media screen and (max-width: 1200px) {
     .site-nav__list {
         gap: 1.2rem;
-        font-size: 0.95rem;
     }
     
     nav {
@@ -596,6 +596,7 @@ footer {
     #main-div {
         margin-top: 0rem;
         flex-direction: column;
+        align-items: center;
         gap: 1rem;
         height: 86vh;
     }
