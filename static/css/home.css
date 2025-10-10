@@ -142,7 +142,7 @@ nav {
 
 #main-div {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     padding: calc(2rem + 2vw) 0;
     gap: 7rem;
     max-width: 68.75rem;
