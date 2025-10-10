@@ -115,6 +115,7 @@ nav {
 
 .site-nav__list {
     display: flex;
+    font-size: 0.9rem;
     gap: 1.9rem;
     flex: 1;
     justify-content: right;
@@ -142,8 +143,8 @@ nav {
 
 #main-div {
     display: flex;
-    align-items: center;
-    padding: calc(2rem + 2vw) 0;
+    align-items: flex-start;
+    padding: calc(3rem + 2vw) 0;
     gap: 7rem;
     max-width: 68.75rem;
     height: calc(100vh - 90px);
@@ -166,7 +167,7 @@ nav {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: auto;
+    
 }
 
 .bio h1 {
@@ -375,6 +376,7 @@ nav {
 .content-section--certifications iframe {
     margin-right: 20px;
     margin-bottom: 20px;
+    max-width: 100%;
 }
 
 .academy-badges {
@@ -442,10 +444,19 @@ footer {
     width: 2.8rem;
     object-fit: cover;
     transition: filter var(--transition-duration), transform 0.3s ease;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) saturate(100%);
 }
 
 .footer-icons a img:hover {
+    filter: brightness(0) saturate(100%) opacity(0.7);
+    transform: translateY(-4px);
+}
+
+.dark-theme .footer-icons a img {
+    filter: brightness(0) invert(1);
+}
+
+.dark-theme .footer-icons a img:hover {
     filter: brightness(1.2) invert(1);
     transform: translateY(-4px);
 }
@@ -503,12 +514,17 @@ footer {
 
 /* Remove hover effect on language icon */
 #language-icon:hover {
-    filter: none;
+    filter: none !important;
 }
 
 /* Make navbar icons white in dark mode */
 .dark-theme .nav-icon {
     filter: invert(100%);
+}
+
+/* Keep language icon filter consistent in dark mode */
+.dark-theme #language-icon {
+    filter: invert(100%) !important;
 }
 
 /* Add hover effect to navbar icons */
@@ -518,6 +534,16 @@ footer {
 }
 
 /* Media queries for responsiveness */
+@media screen and (max-width: 1200px) {
+    .site-nav__list {
+        gap: 1.2rem;
+    }
+    
+    nav {
+        padding: 1.5rem 2rem;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .site-nav__list {
         position: fixed;
@@ -570,6 +596,7 @@ footer {
     #main-div {
         margin-top: 0rem;
         flex-direction: column;
+        align-items: center;
         gap: 1rem;
         height: 86vh;
     }
@@ -610,6 +637,16 @@ footer {
     .footer-contact {
         align-items: center;
     }
+
+    .content-section--certifications iframe {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .academy-badges img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -631,5 +668,15 @@ footer {
 
     .footer-contact {
         width: 100%;
+    }
+
+    .content-section--certifications iframe {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .academy-badges img {
+        max-width: 100%;
+        height: auto;
     }
 }
