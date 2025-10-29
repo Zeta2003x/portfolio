@@ -147,8 +147,17 @@ nav {
     padding: calc(3rem + 2vw) 0;
     gap: 7rem;
     max-width: 68.75rem;
-    height: calc(100vh - 90px);
+    /* height: calc(100vh - 90px); */
     margin: auto;
+    height: auto;
+    min-height: calc(100vh - 90px);
+}
+
+/* Prefer small viewport units when supported to account for browser UI chrome */
+@supports (height: 100svh) {
+    #main-div {
+        min-height: calc(100svh - 90px);
+    }
 }
 
 #main-img {
@@ -166,8 +175,7 @@ nav {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    
+    text-align: center;    
 }
 
 .bio h1 {
@@ -598,7 +606,7 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        height: 86vh;
+        min-height: 86vh;
     }
     
     .bio {
