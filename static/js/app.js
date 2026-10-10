@@ -7,6 +7,64 @@ const urlTheme = new URLSearchParams(window.location.search).get("theme");
 const desktopQuery = window.matchMedia("(min-width: 961px)");
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+// One native timer types and erases the technology names only while the hero is visible.
+const typedWord = document.querySelector(".word[data-words]");
+if (typedWord) {
+  const words = typedWord.dataset.words.split("|").filter(Boolean);
+  if (words.length) {
+    let wordIndex = 0;
+    let characterIndex = words[0].length;
+    let erasing = true;
+    let heroVisible = !window.location.hash || window.location.hash === "#main-div";
+    let timer;
+    typedWord.textContent = words[0];
+
+    function scheduleTyping(delay) {
+      clearTimeout(timer);
+      if (heroVisible && !document.hidden && !reducedMotion.matches) {
+        timer = setTimeout(typeNextCharacter, delay);
+      }
+    }
+
+    function typeNextCharacter() {
+      const word = words[wordIndex];
+      characterIndex += erasing ? -1 : 1;
+      typedWord.textContent = word.slice(0, characterIndex);
+      let delay = erasing ? 45 : 85;
+      if (characterIndex === 0) {
+        erasing = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        delay = 220;
+      } else if (characterIndex === word.length) {
+        erasing = true;
+        delay = 1500;
+      }
+      scheduleTyping(delay);
+    }
+
+    if ("IntersectionObserver" in window) {
+      const typingObserver = new IntersectionObserver(([entry]) => {
+        heroVisible = entry.isIntersecting;
+        scheduleTyping(1500);
+      });
+      typingObserver.observe(typedWord);
+    } else {
+      heroVisible = true;
+    }
+    document.addEventListener("visibilitychange", () => scheduleTyping(1500));
+    reducedMotion.addEventListener("change", (event) => {
+      if (event.matches) {
+        typedWord.textContent = words[wordIndex];
+        characterIndex = words[wordIndex].length;
+        erasing = true;
+      }
+      scheduleTyping(1500);
+    });
+    scheduleTyping(1500);
+  }
+}
+
 let savedTheme = null;
 try { savedTheme = localStorage.getItem("portfolio-theme"); } catch { /* Storage is optional. */ }
 
