@@ -124,7 +124,7 @@ const previewTitle = document.getElementById("preview-title");
 const previewMedia = preview?.querySelector(".preview-media");
 const previewLink = preview?.querySelector(".preview-link");
 const previewClose = preview?.querySelector(".preview-close");
-const previewFrames = new Map();
+const previewContent = new Map();
 let activeTrigger = null;
 let openTimer;
 let closeTimer;
@@ -160,21 +160,32 @@ function positionPreview(trigger) {
 
 function openPreview(trigger) {
   if (!preview || !previewMedia || !previewLink) return;
+  const template = trigger.dataset.previewTemplate
+    ? document.getElementById(trigger.dataset.previewTemplate) : null;
+  const contentKey = template ? `local:${template.id}` : trigger.dataset.embedUrl;
+  if (!contentKey) return;
   clearTimeout(openTimer);
   clearTimeout(closeTimer);
   activeTrigger?.setAttribute("aria-expanded", "false");
   activeTrigger = trigger;
   previewTitle.textContent = trigger.dataset.certTitle;
   previewLink.href = trigger.dataset.postUrl;
-  let frame = previewFrames.get(trigger.dataset.embedUrl);
-  if (!frame) {
-    frame = document.createElement("iframe");
-    frame.src = trigger.dataset.embedUrl;
-    frame.title = `${trigger.dataset.certTitle} — LinkedIn`;
-    frame.referrerPolicy = "strict-origin-when-cross-origin";
-    previewFrames.set(trigger.dataset.embedUrl, frame);
+  let content = previewContent.get(contentKey);
+  if (!content) {
+    // LinkedIn's certificate celebration post requires login inside its embed.
+    // Keep a local summary for that post and preserve its original LinkedIn link.
+    if (template) {
+      content = template.content.firstElementChild.cloneNode(true);
+    } else {
+      content = document.createElement("iframe");
+      content.src = trigger.dataset.embedUrl;
+      content.title = `${trigger.dataset.certTitle} — LinkedIn`;
+      content.referrerPolicy = "strict-origin-when-cross-origin";
+    }
+    previewContent.set(contentKey, content);
   }
-  if (previewMedia.firstElementChild !== frame) previewMedia.replaceChildren(frame);
+  previewMedia.classList.toggle("preview-media--local", Boolean(template));
+  if (previewMedia.firstElementChild !== content) previewMedia.replaceChildren(content);
   preview.hidden = false;
   trigger.setAttribute("aria-expanded", "true");
   positionPreview(trigger);

@@ -175,7 +175,7 @@
             </button>
           </article>
         <article class="certification-card">
-            <button class="certification-trigger" type="button" data-post-url="https://www.linkedin.com/feed/update/urn:li:activity:7444502577225916416/" data-embed-url="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7444502576143966208?collapsed=1" data-cert-title="JavaScript Developer" aria-haspopup="dialog" aria-controls="certification-preview" aria-expanded="false">
+            <button class="certification-trigger" type="button" data-post-url="https://www.linkedin.com/feed/update/urn:li:activity:7444502577225916416/" data-preview-template="javascript-post-preview" data-cert-title="JavaScript Developer" aria-haspopup="dialog" aria-controls="certification-preview" aria-expanded="false">
               <img class="certification-logo" src="static/img/icons/salesforce-icon.png" alt="" width="44" height="44" loading="lazy" />
               <span class="certification-card__issuer">Salesforce</span>
               <span class="certification-card__title">JavaScript Developer</span>
@@ -229,6 +229,14 @@
               <span class="certification-card__title">AI Associate</span>
               <span class="certification-card__source">LinkedIn</span>
             </button>
+          </article>
+        <article class="certification-card certification-card--foundations">
+            <a class="certification-link" href="https://www.linkedin.com/in/mat%C3%ADas-grin-9b76b61b4/details/certifications/" target="_blank" rel="noopener noreferrer">
+              <img class="certification-logo" src="static/img/icons/salesforce-icon.png" alt="" width="44" height="44" loading="lazy" />
+              <span class="certification-card__issuer">Salesforce</span>
+              <span class="certification-card__title">Platform Foundations</span>
+              <span class="certification-card__source">Certifications on LinkedIn</span>
+            </a>
           </article>
         </div>
         <h3 class="content-section__subtitle">Amazon Web Services</h3>
@@ -388,6 +396,14 @@
       </div>
         <p class="footer-note">© <span id="current-year">2026</span> · Site created by Matías Grin</p>
     </footer>
+<template id="javascript-post-preview">
+      <article class="post-preview">
+        <div class="post-preview__author"><img src="static/img/ParqueDelRetiro.webp" alt="" width="40" height="40" /><div><strong>Matías Grin</strong><span>LinkedIn</span></div></div>
+        <p class="post-preview__text">Happy to have earned the JavaScript Developer certification from Trailhead by Salesforce.</p>
+        <div class="post-preview__credential"><img class="certification-logo" src="static/img/icons/salesforce-icon.png" alt="" width="64" height="64" /><span>Salesforce</span><strong>JavaScript Developer</strong></div>
+        <p class="post-preview__caption">Post summary</p>
+      </article>
+    </template>
 <aside class="certification-preview" id="certification-preview" role="dialog" aria-labelledby="preview-title" hidden>
         <div class="preview-header">
         <h3 id="preview-title">Preview</h3><button class="preview-close" type="button" aria-label="Close preview">×</button></div>
