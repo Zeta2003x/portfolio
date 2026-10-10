@@ -123,6 +123,7 @@ const preview = document.getElementById("certification-preview");
 const previewTitle = document.getElementById("preview-title");
 const previewMedia = preview?.querySelector(".preview-media");
 const previewLink = preview?.querySelector(".preview-link");
+const defaultPreviewLinkLabel = previewLink?.textContent;
 const previewClose = preview?.querySelector(".preview-close");
 const previewContent = new Map();
 let activeTrigger = null;
@@ -170,10 +171,10 @@ function openPreview(trigger) {
   activeTrigger = trigger;
   previewTitle.textContent = trigger.dataset.certTitle;
   previewLink.href = trigger.dataset.postUrl;
+  previewLink.textContent = trigger.dataset.previewLinkLabel || defaultPreviewLinkLabel;
   let content = previewContent.get(contentKey);
   if (!content) {
-    // LinkedIn's certificate celebration post requires login inside its embed.
-    // Keep a local summary for that post and preserve its original LinkedIn link.
+    // Local summaries share the same preview interaction as embedded posts.
     if (template) {
       content = template.content.firstElementChild.cloneNode(true);
     } else {

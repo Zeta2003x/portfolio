@@ -234,12 +234,12 @@
             </button>
           </article>
         <article class="certification-card certification-card--foundations">
-            <a class="certification-link" href="https://www.linkedin.com/in/mat%C3%ADas-grin-9b76b61b4/details/certifications/" target="_blank" rel="noopener noreferrer">
+            <button class="certification-trigger" type="button" data-post-url="https://www.linkedin.com/in/mat%C3%ADas-grin-9b76b61b4/details/certifications/" data-preview-template="foundations-preview" data-preview-link-label="Certificaciones en LinkedIn" data-cert-title="Platform Foundations" aria-haspopup="dialog" aria-controls="certification-preview" aria-expanded="false">
               <img class="certification-logo" src="static/img/icons/salesforce-icon.png" alt="" width="44" height="44" loading="lazy" />
               <span class="certification-card__issuer">Salesforce</span>
               <span class="certification-card__title">Platform Foundations</span>
-              <span class="certification-card__source">Certificaciones en LinkedIn</span>
-            </a>
+              <span class="certification-card__source">LinkedIn</span>
+            </button>
           </article>
         </div>
         <h3 class="content-section__subtitle">Amazon Web Services</h3>
@@ -410,6 +410,14 @@
         <p class="post-preview__text">Contento de haber obtenido la certificación JavaScript Developer de Trailhead by Salesforce.</p>
         <div class="post-preview__credential"><img class="certification-logo" src="static/img/icons/salesforce-icon.png" alt="" width="64" height="64" /><span>Salesforce</span><strong>JavaScript Developer</strong></div>
         <p class="post-preview__caption">Resumen de publicación</p>
+      </article>
+    </template>
+<template id="foundations-preview">
+      <article class="post-preview">
+        <div class="post-preview__author"><img src="static/img/ParqueDelRetiro.webp" alt="" width="40" height="40" /><div><strong>Matías Grin</strong><span>LinkedIn</span></div></div>
+        <p class="post-preview__text">Certificación Platform Foundations de Salesforce.</p>
+        <div class="post-preview__credential"><img class="certification-logo" src="static/img/icons/salesforce-icon.png" alt="" width="64" height="64" /><span>Salesforce</span><strong>Platform Foundations</strong></div>
+        <p class="post-preview__caption">Certificación</p>
       </article>
     </template>
 <aside class="certification-preview" id="certification-preview" role="dialog" aria-labelledby="preview-title" hidden>

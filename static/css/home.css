@@ -276,9 +276,7 @@ footer { width: min(var(--page-width), calc(100% - 48px)); margin: 12px auto 0; 
 /* One floating preview stays within the viewport and outside card stacking contexts. */
 .certification-card { position: relative; border: 1px solid var(--border-color); border-radius: 18px; background: var(--surface); transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease; }
 .certification-card:hover, .certification-card:focus-within { border-color: var(--primary-color); box-shadow: var(--card-shadow); }
-.certification-trigger, .certification-link { display: grid; grid-template-columns: 1fr 44px; align-content: start; width: 100%; min-height: 170px; padding: 24px; text-align: left; border: 0; border-radius: inherit; background: transparent; color: var(--text-color); }
-.certification-link:hover { color: var(--text-color); }
-.certification-link .certification-card__source { text-decoration: underline; text-underline-offset: 3px; }
+.certification-trigger { display: grid; grid-template-columns: 1fr 44px; align-content: start; width: 100%; min-height: 170px; padding: 24px; text-align: left; border: 0; border-radius: inherit; background: transparent; color: var(--text-color); }
 .certification-card--foundations { grid-column: -2 / -1; }
 .certification-logo { grid-column: 2; grid-row: 1 / span 2; object-fit: contain; }
 .certification-card__issuer { grid-column: 1; margin-top: 8px; }
@@ -339,7 +337,7 @@ a, button { transition: color 180ms ease, background-color 180ms ease, border-co
   .site-nav__link { display: block; padding: 12px 0; font-size: 14px; }
 }
 @media (max-width: 600px) {
-  .certification-trigger, .certification-link { min-height: 180px; padding: 18px; grid-template-columns: 1fr 36px; }
+  .certification-trigger { min-height: 180px; padding: 18px; grid-template-columns: 1fr 36px; }
   .certification-logo { width: 36px; height: 36px; }
   .certification-card__title { font-size: 13px; }
   .preview-media { height: min(340px, calc(100dvh - 230px)); }
