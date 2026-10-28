@@ -4,7 +4,7 @@ const navigation = document.getElementById("primary-navigation");
 const languageLinks = document.querySelectorAll(".language-link");
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const urlTheme = new URLSearchParams(window.location.search).get("theme");
-const desktopQuery = window.matchMedia("(min-width: 961px)");
+const desktopQuery = window.matchMedia("(min-width: 1101px)");
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -79,10 +79,11 @@ function updateLanguageLinks(theme) {
 
 function applyTheme(theme) {
   const isDark = theme === "dark";
+  document.documentElement.classList.toggle("dark-theme", isDark);
   document.body.classList.toggle("dark-theme", isDark);
   themeButton?.setAttribute("aria-pressed", String(isDark));
   themeButton?.setAttribute("aria-label", isDark ? themeButton.dataset.lightLabel : themeButton.dataset.darkLabel);
-  themeColor?.setAttribute("content", isDark ? "#101724" : "#f5f7fb");
+  themeColor?.setAttribute("content", isDark ? "#10161e" : "#f8f9fb");
   updateLanguageLinks(theme);
 }
 
@@ -108,15 +109,44 @@ languageLinks.forEach((link) => link.addEventListener("click", () => {
 function closeMenu() {
   navigation?.classList.remove("show");
   menuButton?.setAttribute("aria-expanded", "false");
+  if (menuButton) menuButton.setAttribute("aria-label", menuButton.dataset.openLabel);
 }
 menuButton?.addEventListener("click", () => {
   const expanded = menuButton.getAttribute("aria-expanded") !== "true";
   navigation?.classList.toggle("show", expanded);
   menuButton.setAttribute("aria-expanded", String(expanded));
+  menuButton.setAttribute("aria-label", expanded ? menuButton.dataset.closeLabel : menuButton.dataset.openLabel);
 });
 document.querySelectorAll(".nav-link").forEach((link) => link.addEventListener("click", closeMenu));
 document.addEventListener("click", (event) => { if (!event.target.closest(".site-nav")) closeMenu(); });
 desktopQuery.addEventListener("change", (event) => { if (event.matches) closeMenu(); });
+
+// Mark the section being read, including when the visitor scrolls without using a link.
+const sectionLinks = [...document.querySelectorAll(".nav-link")];
+const trackedSections = [...document.querySelectorAll("main section[id], footer[id]")];
+let navigationFramePending = false;
+function updateActiveNavigation() {
+  navigationFramePending = false;
+  const readingLine = Math.min(window.innerHeight * 0.33, 260);
+  let activeId = null;
+  trackedSections.forEach((section) => {
+    if (section.getBoundingClientRect().top <= readingLine) activeId = section.id;
+  });
+  if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) activeId = "contacto";
+  sectionLinks.forEach((link) => {
+    if (link.getAttribute("href") === `#${activeId}`) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+}
+function scheduleNavigationUpdate() {
+  if (navigationFramePending) return;
+  navigationFramePending = true;
+  requestAnimationFrame(updateActiveNavigation);
+}
+window.addEventListener("scroll", scheduleNavigationUpdate, { passive: true });
+window.addEventListener("resize", scheduleNavigationUpdate);
+window.addEventListener("pageshow", scheduleNavigationUpdate);
+updateActiveNavigation();
 
 // Preview is mounted outside cards so it cannot be clipped by their layout or motion.
 const preview = document.getElementById("certification-preview");

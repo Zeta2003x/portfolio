@@ -6,7 +6,7 @@
     <meta name="description" content="Senior Salesforce Developer at Sela Cloud. Salesforce, Apex, LWC, Agentforce, integrations and web development. Buenos Aires, Argentina." />
     <meta name="author" content="Matías Grin" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#f5f7fb" />
+    <meta name="theme-color" content="#f8f9fb" />
     <meta property="og:title" content="Matías Grin | Senior Salesforce Developer" />
     <meta property="og:description" content="Senior Salesforce Developer at Sela Cloud. Salesforce, Apex, LWC, Agentforce, integrations and web development. Buenos Aires, Argentina." />
     <meta property="og:type" content="website" />
@@ -18,6 +18,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      (() => {
+        document.documentElement.classList.add("js");
+        let saved;
+        try { saved = localStorage.getItem("portfolio-theme"); } catch { /* Storage is optional. */ }
+        const requested = new URLSearchParams(location.search).get("theme");
+        const theme = ["light", "dark"].includes(requested) ? requested
+          : ["light", "dark"].includes(saved) ? saved
+            : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.classList.toggle("dark-theme", theme === "dark");
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#10161e" : "#f8f9fb";
+      })();
+    </script>
     <link rel="stylesheet" href="static/css/home.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="static/img/icons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="static/img/icons/favicon-32x32.png" />
@@ -39,13 +52,13 @@
           <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
         </button>
         <div class="language-switch" aria-label="Language"><a class="language-link" href="index.html" hreflang="es" lang="es" aria-label="Español">ES</a><a class="language-link" href="index-en.html" hreflang="en" lang="en" aria-label="English" aria-current="page">EN</a><a class="language-link" href="index-it.html" hreflang="it" lang="it" aria-label="Italiano">IT</a></div>
-        <button class="site-nav__burger" id="burger-menu" type="button" aria-label="Open menu" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span></button>
+        <button class="site-nav__burger" id="burger-menu" type="button" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span></button>
       </div>
     </nav>
     <main id="main-content">
         <section id="main-div" class="hero" aria-labelledby="hero-title">
         <div class="bio">
-        <h1 id="hero-title">Hi, I'm<br /><span>Matías Grin.</span></h1>
+        <h1 id="hero-title"><span class="hero-greeting">Hi, I'm</span><span>Matías Grin.</span></h1>
         <p class="hero-role">Senior Salesforce Developer</p>
         <p class="hero-technologies"><span class="visually-hidden">Technologies: Apex, Lightning Web Components, Salesforce, TypeScript, Python, SQL and Power BI.</span><span class="word" data-words="Apex|Lightning Web Components|Salesforce|TypeScript|Python|SQL|Power BI" aria-hidden="true">Apex</span></p>
         <p class="hero-description">Salesforce solutions, automation and integrations, with a focus on scalability and code quality.</p>
